@@ -41,3 +41,8 @@ func _process(delta):
 
 func _on_HurtBox_area_entered(area):
 	PlayerStats.health -= area.damage
+
+
+
+func _on_HitBox_area_entered(area):
+	motion.y = -JUMP_FORCE
