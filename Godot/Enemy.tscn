@@ -34,7 +34,7 @@ animations = [ {
 extents = Vector2( 11, 4 )
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 4.99996
+radius = 3.99996
 height = 22.0001
 
 [sub_resource type="RectangleShape2D" id=7]
@@ -48,7 +48,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -6 )
 frames = SubResource( 4 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

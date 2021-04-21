@@ -7,6 +7,7 @@ export var GRAVITY = 200
 export var JUMP_FORCE = 120
 
 var motion = Vector2.ZERO
+var double_jump = true
 
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
@@ -33,10 +34,15 @@ func _process(delta):
 			motion.x = lerp(motion.x, 0, FRICTION)
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_FORCE
+		double_jump = true
 	else:
+		if double_jump == true:
+			if Input.is_action_just_pressed("ui_up"):
+				motion.y = -JUMP_FORCE
+				double_jump = false
 		animationPlayer.play("Jump")
-		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
-			motion.y = -JUMP_FORCE/2
+		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/3:
+			motion.y = -JUMP_FORCE/3
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, 0.02)
 	
