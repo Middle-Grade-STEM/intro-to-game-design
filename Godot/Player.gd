@@ -11,6 +11,9 @@ var motion = Vector2.ZERO
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
 
+func _ready():
+	PlayerStats.connect("no_health", self, "queue_free")
+
 func _process(delta):
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
