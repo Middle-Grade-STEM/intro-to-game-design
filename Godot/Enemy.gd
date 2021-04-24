@@ -31,6 +31,7 @@ func _physics_process(delta):
 
 func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
+	SoundManager.play_fixed_sound(2)
 
 
 func _on_Stats_no_health():

@@ -34,11 +34,13 @@ func _process(delta):
 			motion.x = lerp(motion.x, 0, FRICTION)
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_FORCE
+			SoundManager.play_fixed_sound(0)
 		double_jump = true
 	else:
 		if double_jump == true:
 			if Input.is_action_just_pressed("ui_up"):
 				motion.y = -JUMP_FORCE
+				SoundManager.play_fixed_sound(0)
 				double_jump = false
 		animationPlayer.play("Jump")
 		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/3:
@@ -51,6 +53,7 @@ func _process(delta):
 
 func _on_HurtBox_area_entered(area):
 	PlayerStats.health -= area.damage
+	SoundManager.play_fixed_sound(2)
 
 
 

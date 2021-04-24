@@ -15,13 +15,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Platformer"
+config/name="Space Collector"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 PlayerStats="*res://PlayerStats.tscn"
+SoundManager="*res://SoundManager.tscn"
 
 [display]
 
