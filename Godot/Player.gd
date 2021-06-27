@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-export var ACCELERATION = 500
-export var MAX_SPEED = 64
-export var FRICTION = .25
-export var GRAVITY = 200
-export var JUMP_FORCE = 120
+export (int) var ACCELERATION = 500
+export (int) var MAX_SPEED = 64
+export (float) var FRICTION = .25
+export (int) var GRAVITY = 200
+export (int) var JUMP_FORCE = 120
 
 var motion = Vector2.ZERO
 var double_jump = true
@@ -45,8 +45,6 @@ func _process(delta):
 		animationPlayer.play("Jump")
 		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/3:
 			motion.y = -JUMP_FORCE/3
-		if x_input == 0:
-			motion.x = lerp(motion.x, 0, 0.02)
 	
 	motion = move_and_slide(motion, Vector2.UP)
 

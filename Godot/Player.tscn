@@ -96,9 +96,9 @@ collision_layer = 8
 [node name="CollisionShape2D" parent="HurtBox" index="1"]
 position = Vector2( 0, -8 )
 shape = SubResource( 6 )
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 
 [editable path="HitBox"]
-
 [editable path="HurtBox"]
