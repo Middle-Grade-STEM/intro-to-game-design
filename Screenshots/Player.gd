@@ -35,7 +35,7 @@ func _physics_process(delta):
 			motion.y = -JUMP_FORCE
 	else:
 		animationPlayer.play("Jump")
-		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/3:
-			motion.y = -JUMP_FORCE/3
+		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
+			motion.y = -JUMP_FORCE/2
 	
 	motion = move_and_slide(motion, Vector2.UP)
