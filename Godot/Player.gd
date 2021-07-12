@@ -26,12 +26,11 @@ func _process(delta):
 		sprite.flip_h = x_input < 0
 	else:
 		animationPlayer.play("Idle")
+		motion.x = lerp(motion.x, 0, FRICTION)
 	
 	motion.y += GRAVITY * delta
 	
 	if is_on_floor():
-		if x_input == 0:
-			motion.x = lerp(motion.x, 0, FRICTION)
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_FORCE
 			SoundManager.play_fixed_sound(0)
@@ -43,8 +42,8 @@ func _process(delta):
 				SoundManager.play_fixed_sound(0)
 				double_jump = false
 		animationPlayer.play("Jump")
-		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/3:
-			motion.y = -JUMP_FORCE/3
+		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
+			motion.y = -JUMP_FORCE/2
 	
 	motion = move_and_slide(motion, Vector2.UP)
 
